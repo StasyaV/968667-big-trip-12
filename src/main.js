@@ -1,11 +1,5 @@
 'use strict';
 
-const siteHeaderContainer = document.querySelector(`.page-header__container`);
-const headerMainTripContainer = siteHeaderContainer.querySelector(`.trip-main`);
-const headerTripControls = siteHeaderContainer.querySelector(`.trip-controls`);
-const siteMainContainer = document.querySelector(`.page-main`);
-const mainContainerElement = siteMainContainer.querySelector(`.trip-events`);
-
 const renderElement = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
@@ -541,10 +535,17 @@ const createTripInfoTemplate = () => {
   );
 };
 
+
+const siteHeaderContainer = document.querySelector(`.page-header__container`);
+const headerMainTripContainer = siteHeaderContainer.querySelector(`.trip-main`);
+const headerTripControls = siteHeaderContainer.querySelector(`.trip-controls`);
+const siteMainContainer = document.querySelector(`.page-main`);
+const tripEventsContainer = siteMainContainer.querySelector(`.trip-events`);
+
 renderElement(headerMainTripContainer, createTripInfoTemplate(), `afterbegin`);
 renderElement(headerTripControls, createMenuTemplate(), `afterbegin`);
 renderElement(headerTripControls, createFilterTemplate(), `beforeend`);
-renderElement(mainContainerElement, createFirstDirectionTemplate(), `afterbegin`);
-renderElement(mainContainerElement, createSortTemplate(), `afterbegin`);
-renderElement(mainContainerElement, createDestinationPointsTemplate(), `beforeend`);
+renderElement(tripEventsContainer, createFirstDirectionTemplate(), `afterbegin`);
+renderElement(tripEventsContainer, createSortTemplate(), `afterbegin`);
+renderElement(tripEventsContainer, createDestinationPointsTemplate(), `beforeend`);
 
