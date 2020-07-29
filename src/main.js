@@ -1,7 +1,8 @@
 'use strict';
+const DEFAULT_RENDER_PLACE = `afterbegin`;
 
-const renderElement = (container, template, place) => {
-  container.insertAdjacentHTML(place, template);
+const render = (container, template) => {
+  container.insertAdjacentHTML(DEFAULT_RENDER_PLACE, template);
 };
 
 const createMenuTemplate = () => {
@@ -542,10 +543,10 @@ const headerTripControls = siteHeaderContainer.querySelector(`.trip-controls`);
 const siteMainContainer = document.querySelector(`.page-main`);
 const tripEventsContainer = siteMainContainer.querySelector(`.trip-events`);
 
-renderElement(headerMainTripContainer, createTripInfoTemplate(), `afterbegin`);
-renderElement(headerTripControls, createMenuTemplate(), `afterbegin`);
-renderElement(headerTripControls, createFilterTemplate(), `beforeend`);
-renderElement(tripEventsContainer, createFirstDirectionTemplate(), `afterbegin`);
-renderElement(tripEventsContainer, createSortTemplate(), `afterbegin`);
-renderElement(tripEventsContainer, createDestinationPointsTemplate(), `beforeend`);
+render(headerMainTripContainer, createTripInfoTemplate());
+render(headerTripControls, createFilterTemplate());
+render(headerTripControls, createMenuTemplate());
+render(tripEventsContainer, createDestinationPointsTemplate());
+render(tripEventsContainer, createFirstDirectionTemplate());
+render(tripEventsContainer, createSortTemplate());
 
