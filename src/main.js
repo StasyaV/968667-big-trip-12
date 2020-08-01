@@ -1,9 +1,9 @@
-import { createMenuTemplate } from "./view/menu.js";
-import { createTripInfoTemplate } from "./view/trip-info.js";
-import { createFilterTemplate } from "./view/filter.js";
-import { createDestinationPointsTemplate } from "./view/destination-point.js";
-import { createFirstDirectionTemplate } from "./view/direction.js";
-import { createSortTemplate } from "./view/sort.js";
+import {createMenuTemplate} from "./view/menu.js";
+import {createTripInfoTemplate} from "./view/trip-info.js";
+import {createFilterTemplate} from "./view/filter.js";
+import {createDestinationPointsTemplate} from "./view/destination-point.js";
+import {createFirstDirectionTemplate} from "./view/direction.js";
+import {createSortTemplate} from "./view/sort.js";
 
 const DEFAULT_RENDER_PLACE = `afterbegin`;
 
@@ -24,4 +24,3 @@ render(headerTripControls, createMenuTemplate());
 render(tripEventsContainer, createDestinationPointsTemplate());
 render(tripEventsContainer, createFirstDirectionTemplate());
 render(tripEventsContainer, createSortTemplate());
-
