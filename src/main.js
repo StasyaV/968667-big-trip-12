@@ -11,7 +11,6 @@ const render = (container, template) => {
   container.insertAdjacentHTML(DEFAULT_RENDER_PLACE, template);
 };
 
-
 const siteHeaderContainer = document.querySelector(`.page-header__container`);
 const headerMainTripContainer = siteHeaderContainer.querySelector(`.trip-main`);
 const headerTripControls = siteHeaderContainer.querySelector(`.trip-controls`);
