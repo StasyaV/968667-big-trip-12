@@ -1,5 +1,6 @@
 import {getRandomIndex} from "../util.js";
 import {typeOfDestinationPoint} from "../const.js";
+import {externalOprionsList} from "../const.js";
 
 const descriptionList = [
   `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
@@ -16,8 +17,51 @@ const descriptionList = [
 
 const townsList = [`Amsterdam`, `Chamonix`, `Geneva`];
 
-const generateDescription = (list) => {
-  return list[getRandomIndex];
+const generateDescriptionLength = () => {
+  const maxLengthDescription = 5;
+  const minLengthDescription = 1;
+  return getRandomIndex(minLengthDescription, maxLengthDescription);
+};
+
+const generateDescription = () => {
+  const description = ``;
+  for (let i = 0; i < generateDescriptionLength(); i++) {
+    description += descriptionList[i];
+  }
+  return description;
+};
+
+const generateOption = () => {
+  const element = externalOprionsList[getRandomIndex(0, externalOprionsList.lenght)];
+  return element.name + element.price;
+};
+
+const generateExternalOptionsList = () => {
+  const options = [];
+  const minOptionsCount = 0;
+  const maxOptionsCount = 5;
+  const optionsCount = getRandomIndex(minOptionsCount, maxOptionsCount);
+
+  for (let i = 0; i < optionsCount; i++) {
+    options.push(generateOption());
+  }
+  return options;
+};
+
+console.log(generateExternalOptionsList());
+
+const generateDestinationPoint = () => {
+  const destinationPoint = {
+    typeOfPoint: typeOfDestinationPoint[getRandomIndex(0, typeOfDestinationPoint.length)],
+    destinationPoint: townsList[getRandomIndex(0, townsList.length)],
+
+    info: {
+      description: generateDescription(),
+      photos: `http://picsum.photos/248/152?r=${Math.random()}`
+    }
+  };
+
+  return destinationPoint;
 };
 
 export const createDestinationPointsTemplate = () => {
@@ -65,7 +109,7 @@ export const createDestinationPointsTemplate = () => {
           </div>
         </li>
 
-        
+
         </ul>
     </li>
   </ul>`
